@@ -1,0 +1,843 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Repository Untuk Tugas">
+      
+      
+        <link rel="canonical" href="https://achfaisol.github.io/fuzzy/">
+      
+      
+        <meta name="author" content="Ach. Faisol S. Arifin">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+    
+    
+      
+        <title>Implementasi Fuzzy C-Means Clustering dengan Python - (180411100073) Ach. Faisol S. Arifin</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#3f51b5">
+      
+    
+    
+      <script src="../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../assets/fonts/material-icons.css">
+    
+      <link rel="manifest" href="../manifest.webmanifest">
+    
+    
+    
+      
+        
+<script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "UA-XXXXXXXX-X", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#implementasi-fuzzy-c-means-clustering-dengan-python" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://achfaisol.github.io/" title="(180411100073) Ach. Faisol S. Arifin" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon"></i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              (180411100073) Ach. Faisol S. Arifin
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Implementasi Fuzzy C-Means Clustering dengan  Python
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/achfaisol/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Ach. Faisol
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="https://achfaisol.github.io/" title="(180411100073) Ach. Faisol S. Arifin" class="md-nav__button md-logo">
+      
+        <i class="md-icon"></i>
+      
+    </a>
+    (180411100073) Ach. Faisol S. Arifin
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/achfaisol/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    Ach. Faisol
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href=".." title="Index" class="md-nav__link">
+      Index
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Statistik Deskriptif/" title="Statistik Deskriptif" class="md-nav__link">
+      Statistik Deskriptif
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../Distance/" title="Menghitung Jarak Data" class="md-nav__link">
+      Menghitung Jarak Data
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../missing knn/" title="Mangatasi Missing Values dengan K-NN" class="md-nav__link">
+      Mangatasi Missing Values dengan K-NN
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../klasifikasi/" title="Klasifikasi Dengan Decision Tree" class="md-nav__link">
+      Klasifikasi Dengan Decision Tree
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../clustering/" title="Implementasi Metode K-Means, K-Modes, dan K-Prototype dengan python" class="md-nav__link">
+      Implementasi Metode K-Means, K-Modes, dan K-Prototype dengan python
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Implementasi Fuzzy C-Means Clustering dengan  Python
+      </label>
+    
+    <a href="./" title="Implementasi Fuzzy C-Means Clustering dengan Python" class="md-nav__link md-nav__link--active">
+      Implementasi Fuzzy C-Means Clustering dengan  Python
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pengertian-fuzzy-c-means" class="md-nav__link">
+    Pengertian Fuzzy C-Means
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritma-fuzzy-c-means" class="md-nav__link">
+    Algoritma Fuzzy C-Means
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-pada-python" class="md-nav__link">
+    Implementasi pada Python
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#pengertian-fuzzy-c-means" class="md-nav__link">
+    Pengertian Fuzzy C-Means
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#algoritma-fuzzy-c-means" class="md-nav__link">
+    Algoritma Fuzzy C-Means
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#implementasi-pada-python" class="md-nav__link">
+    Implementasi pada Python
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/achfaisol/edit/master/docs/fuzzy.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="implementasi-fuzzy-c-means-clustering-dengan-python">Implementasi Fuzzy C-Means Clustering dengan  Python<a class="headerlink" href="#implementasi-fuzzy-c-means-clustering-dengan-python" title="Permanent link">&para;</a></h1>
+<h2 id="pengertian-fuzzy-c-means">Pengertian Fuzzy C-Means<a class="headerlink" href="#pengertian-fuzzy-c-means" title="Permanent link">&para;</a></h2>
+<div style="text-align:justify;">Fuzzy c-means (FCM) adalah metode pengelompokan data yang dimana keberadaa setiap element data dalam suatu cluster dituntukan oleh derajat keanggotaannya. Metode ini dikembangkan oleh Dunn pada tahun 1973 dan ditingkatkan oleh Bezdek pada tahun 1981). Metode ini biasanya sering digunakan dalam pengenalan pola yamg mana didasarkan pada minimalisasi fungsinya yaitu:</div>
+
+<p>$$
+J_m = {\sum \limits_{i=1}^{N}} {\sum \limits_{j=1}^{C}} x_{ij}^m | | x_i - c_j | | ^2 ,     m \leq 1 &lt; \infty
+$$</p>
+<div style="text-align:justify;">di mana $ m $ merupakan bilangan real yang lebih besar dari 1, $ u_{ij} $ adalah tingkat keanggotaan $ x_i $ dalam cluster $ j $, dan $ x_i $ adalah jumlah data terukur d-dimensi, $ c_j $ adalah pusat dimensi d dari cluster, dan $ || * | | $ adalah norma apa pun yang mengungkapkan kesamaan antara data yang diukur dan pusat.</div>
+
+<div style="text-align:justify;"> Partisi fuzzy dilakukan melalui optimasi berulang fungsi objektif yang ditunjukkan di atas, dengan pembaruan keanggotaan uij dan pusat-pusat cluster $ c_j $ oleh:</div>
+
+<p>Penentuan pusat cluster dapat dilakukan dengan menggunakan formula: $ c_j = {{{\sum \limits_{j=1}^{C}} \mu_{ij}^m . x_i} \over {{\sum \limits_{j=1}^{C}} \mu_{ij}^m}} $ , dimana $ c $ adalah kumpulan cluster yang ada, yang akan di iterasi sebanyak jumlah cluster pada $ c_j $. setelah mendapatkan nilai pusat cluster (<i>cendroid</i>), dapat dilanjutkan dengan memperbaharui nilai derajat ke anggotaan dari masing-masing cluster dengan menggunakan formula, yaitu : $ \mu_{ij} ={1 \over \sum  \limits_{k=1}^{C} \left ( \frac {| | x_i - c_j | | } {{| | x_i - c_k | | } } \right) ^ { \frac { 2 } { m-1 } }} $</p>
+<div style="text-align:justify;">Iterasi ini akan berhenti ketika $ {| | \mu^{(k + 1)} - \mu^{k} | | } < \epsilon $ , dan iterasi telah mencapat batas yang telah ditentukan, di mana kriteria terminasi antara 0 dan 1, sedangkan  $ k $ adalah langkah iterasi. Prosedur ini menyatu ke minimum lokal atau titik pelana $ J_m $.</div>
+
+<h2 id="algoritma-fuzzy-c-means">Algoritma Fuzzy C-Means<a class="headerlink" href="#algoritma-fuzzy-c-means" title="Permanent link">&para;</a></h2>
+<p>Algoritma perhitungan dapat dilakukan seperti berikut :</p>
+<ol>
+<li>Menentukan jumlah cluster (<i>k</i>)</li>
+<li>Menginisialisasi nilai random darajat ke anggotaan dari masing masing cluster, dimana nilai diantara 0 s/d 1, dan ketika di jumlah sama dengan 1.</li>
+<li>Mencari pusat cluster (<i>cendroid</i>) sebanyak cluster, $ c_j = {{{\sum \limits_{j=1}^{C}} \mu_{ij}^m . x_i} \over {{\sum \limits_{j=1}^{C}} \mu_{ij}^m}} $</li>
+<li>Mengubah nilai derajat ke anggotaan setiap element cluster $  \mu^{(k + 1)} - \mu^{k} $, dengan $ \mu_{ij} ={1 \over \sum  \limits_{k=1}^{C} \left ( \frac {| | x_i - c_j | | } {{| | x_i - c_k | | } } \right) ^ { \frac { 2 } { m-1 } }} $</li>
+<li>Ketika jarak $ \mu^{(k + 1)} - \mu^{k} $ kurang dari ambang batas atau iterasi telah sampai pada batas yang telah ditentukan, maka iterasi dapat dihentikan. selain itu kita dapat mengulang dari langkah ke-2.</li>
+</ol>
+<h2 id="implementasi-pada-python">Implementasi pada Python<a class="headerlink" href="#implementasi-pada-python" title="Permanent link">&para;</a></h2>
+<p>Pertama yang dapat dilakukan adalah dengan masukkan data yang berbentuk .csv menggunakan library pandas.</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">math</span> <span class="kn">as</span> <span class="nn">mt</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;cmeans.csv&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">hide_index</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Data akan tampil seperti berikut yang berisi tiga fitur, dan dua fitur akan digunakan untuk perhitungan yaitu, Rumah dan Mobil.</p>
+<table id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952" ><thead>    <tr>        <th class="col_heading level0 col0" >Nama</th>        <th class="col_heading level0 col1" >Rumah</th>        <th class="col_heading level0 col2" >Mobil</th>    </tr></thead><tbody>            <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row0_col0" class="data row0 col0" >A</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row0_col1" class="data row0 col1" >1</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row0_col2" class="data row0 col2" >3</td>
+        </tr>
+        <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row1_col0" class="data row1 col0" >B</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row1_col1" class="data row1 col1" >3</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row1_col2" class="data row1 col2" >3</td>
+        </tr>
+        <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row2_col0" class="data row2 col0" >C</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row2_col1" class="data row2 col1" >4</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row2_col2" class="data row2 col2" >3</td>
+        </tr>
+        <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row3_col0" class="data row3 col0" >D</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row3_col1" class="data row3 col1" >5</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row3_col2" class="data row3 col2" >3</td>
+        </tr>
+        <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row4_col0" class="data row4 col0" >E</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row4_col1" class="data row4 col1" >1</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row4_col2" class="data row4 col2" >2</td>
+        </tr>
+        <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row5_col0" class="data row5 col0" >F</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row5_col1" class="data row5 col1" >4</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row5_col2" class="data row5 col2" >2</td>
+        </tr>
+        <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row6_col0" class="data row6 col0" >G</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row6_col1" class="data row6 col1" >1</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row6_col2" class="data row6 col2" >1</td>
+        </tr>
+        <tr>
+                            <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row7_col0" class="data row7 col0" >H</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row7_col1" class="data row7 col1" >2</td>
+                    <td id="T_3dc0924a_068c_11ea_93b3_3c970ed5e952row7_col2" class="data row7 col2" >1</td>
+        </tr>
+</tbody></table>
+
+<p>Kemudian dapat membuat membuat fungsi <i>buat_mu(X, cluster)</i>, yang akan digunakan membuat nilai derajat keanggotaan secara random sebanyak data dan jumlah cluster.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">buat_mu</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">cluster</span><span class="p">):</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+        <span class="n">temp_mu</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">cluster</span><span class="p">):</span>
+            <span class="n">inp</span><span class="o">=</span><span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">);</span>
+            <span class="n">temp_mu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">inp</span><span class="o">/</span><span class="mi">10</span><span class="p">)</span>
+        <span class="n">mu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_mu</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mu</span>
+</pre></div>
+
+
+<p>Fungsi berikut  untuk melakukan normalisasi pada nilai $ \mu $ agar ketika dijumlah berniali 1.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">normalisasi_mu</span><span class="p">(</span><span class="n">mu</span><span class="p">):</span>
+    <span class="n">n_mu</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">)):</span>
+        <span class="n">temp_mu</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="n">nilai2</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+                <span class="k">if</span> <span class="n">k</span><span class="o">==</span><span class="n">j</span><span class="p">:</span>           
+                    <span class="n">nilai</span> <span class="o">=</span> <span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">nilai2</span> <span class="o">+=</span> <span class="n">mu</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">k</span><span class="p">]</span>           
+            <span class="n">temp_mu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">nilai</span><span class="o">/</span><span class="p">(</span><span class="n">nilai</span><span class="o">+</span><span class="n">nilai2</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="n">n_mu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp_mu</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">n_mu</span>
+</pre></div>
+
+
+<p>Fungsi berikut untuk melakukan perhitungan pada $ \mu_{ij}^m $ </p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">mu_kuadrat</span><span class="p">(</span><span class="n">n_mu</span><span class="p">,</span><span class="n">m</span><span class="p">):</span>
+    <span class="n">mu_pow</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_mu</span><span class="p">)):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_mu</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">n_mu</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">**</span> <span class="n">m</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+        <span class="n">mu_pow</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mu_pow</span>
+</pre></div>
+
+
+<p>Fungsi berikut untuk melakukan perhitungan $ \mu_{ij}^m . x_i $</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">mu_kuad_X</span><span class="p">(</span><span class="n">jumlah_cluster</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">mu_kuad</span><span class="p">):</span>
+    <span class="n">mu_kuad_X</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jumlah_cluster</span><span class="p">):</span>
+        <span class="n">mu_x</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)):</span>
+            <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">])):</span>
+                <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">*</span> <span class="n">mu_kuad</span><span class="p">[</span><span class="n">j</span><span class="p">][</span><span class="n">i</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span>
+            <span class="n">mu_x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+        <span class="n">mu_kuad_X</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">mu_x</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">mu_kuad_X</span>
+</pre></div>
+
+
+<p>Fungsi berikut untuk melakukan sum/jumlah pada kolom setiap vektor yang dimasukkan.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">jumlah</span><span class="p">(</span><span class="n">N</span><span class="p">):</span>
+    <span class="n">jumlah</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">N</span><span class="p">)):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="k">if</span> <span class="n">i</span><span class="o">==</span><span class="mi">0</span><span class="p">:</span>
+                <span class="n">ij</span> <span class="o">=</span> <span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">ij</span> <span class="o">=</span> <span class="n">jumlah</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">+</span> <span class="n">N</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ij</span><span class="p">)</span>
+        <span class="n">jumlah</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">jumlah</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+
+<p>Fungsi berikut untuk mendapatkan nilai pusat cluster (<i>cendroid</i>) dari masing-masing cluster. perhitungan yang dilakukan adalah dengan menggabungkan fungsi yang telah di definisikan diatas, yang merupakan implementasi dari formula $ c_j = {{{\sum \limits_{j=1}^{C}} \mu_{ij}^m . x_i} \over {{\sum \limits_{j=1}^{C}} \mu_{ij}^m}} $</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">getCentroid</span><span class="p">(</span><span class="n">U</span><span class="p">,</span><span class="n">mu_kuad_X</span><span class="p">):</span>
+    <span class="n">SUM_C</span> <span class="o">=</span> <span class="n">jumlah</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+    <span class="n">centroid</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jumlah_cluster</span><span class="p">):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">SUM_U</span> <span class="o">=</span> <span class="n">jumlah</span><span class="p">(</span><span class="n">mu_kuad_X</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">jumlah</span><span class="p">(</span><span class="n">mu_kuad_X</span><span class="p">[</span><span class="n">i</span><span class="p">]))):</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SUM_U</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">/</span> <span class="n">SUM_C</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">centroid</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">centroid</span>
+</pre></div>
+
+
+<p>Fungsi berikut merupakan metode perhitungan jarak Mahatan Distance yang didefinisikan dengan $d _ { \operatorname { man } } = \sum _ { i = 1 } ^ { n } \left| x _ { i } - y _ { i } \right| $</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">manhatan_dist</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[],</span><span class="n">y</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="n">dist</span> <span class="o">+=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span><span class="mi">4</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">dist</span>
+</pre></div>
+
+
+<p>dan fungsi berikut juga merupakan metode perhitungan jarak Euclidian Distance yang didefinisikan dengan $ d_(x,y) =\sqrt{ \sum _ { i = 1 } ^ { n } \left( x _ { i } - y _ { i } \right)^2}  $</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">euclidian_dist</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[],</span><span class="n">y</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="n">dist</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)):</span>
+        <span class="n">dist</span> <span class="o">+=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">mt</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dist</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+
+<p>untuk dapat melakukan perubahan nilai derajat ke anggotaan, maka dibuat fungsi update_U() dengan parameter n_mu adalah derajat ke anggotaan $ \mu $, jumlah cluster, data, dan pusat cluster. fungsi tersebut merupakan implementasi dari formula,  $ \mu_{ij} ={1 \over \sum  \limits_{k=1}^{C} \left ( \frac {| | x_i - c_j | | } {{| | x_i - c_k | | } } \right) ^ { \frac { 2 } { m-1 } }} $</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">update_U</span><span class="p">(</span><span class="n">n_mu</span><span class="p">,</span><span class="n">jumlah_cluster</span><span class="p">,</span><span class="n">X</span><span class="p">,</span><span class="n">centroid</span><span class="p">):</span>
+    <span class="n">U</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_mu</span><span class="p">)):</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">n_mu</span><span class="p">[</span><span class="n">i</span><span class="p">])):</span>
+            <span class="n">penyebut</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">jumlah_cluster</span><span class="p">):</span>
+                <span class="n">pembilang</span> <span class="o">=</span> <span class="n">euclidian_dist</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">centroid</span><span class="p">[</span><span class="n">j</span><span class="p">])</span>
+                <span class="n">penyebut</span> <span class="o">+=</span> <span class="n">euclidian_dist</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">centroid</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="n">hasil</span> <span class="o">=</span> <span class="n">pembilang</span><span class="o">/</span><span class="n">penyebut</span>
+            <span class="n">hasil</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="n">hasil</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span><span class="o">/</span><span class="p">(</span><span class="n">m</span><span class="o">-</span><span class="mi">1</span><span class="p">))),</span><span class="mi">4</span><span class="p">)</span>
+            <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">hasil</span><span class="p">)</span>
+        <span class="n">U</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">U</span>
+</pre></div>
+
+
+<p>Kemudian kita dapat membuat fungsi utama yaitu, Fuzzy_CMeans(X, jumlah_cluster, m, max_iter, threshold) yang akan melakukan komputasi berdasarkan algoritma yang telah ditentukan diatas. dan akan berhenti ketika telah nilai fungsi objectif  kurang dari nilai ambang batas, atau iterasi telah mencapat batas yang telah ditentukan.</p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">Fuzzy_CMeans</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">jumlah_cluster</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">threshold</span><span class="p">):</span>
+    <span class="n">mu</span> <span class="o">=</span> <span class="n">buat_mu</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">jumlah_cluster</span><span class="p">)</span>
+    <span class="n">N_mu</span> <span class="o">=</span> <span class="n">normalisasi_mu</span><span class="p">(</span><span class="n">mu</span><span class="p">)</span>
+    <span class="n">iterasi</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">stop</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">while</span> <span class="n">iterasi</span> <span class="o">&lt;</span> <span class="n">max_iter</span> <span class="ow">and</span> <span class="n">stop</span><span class="p">:</span>
+        <span class="n">N</span> <span class="o">=</span> <span class="n">N_mu</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;Iterasi&#39;</span><span class="p">,</span> <span class="n">iterasi</span><span class="p">)</span>
+        <span class="n">centroid</span> <span class="o">=</span> <span class="n">getCentroid</span><span class="p">(</span><span class="n">N_mu</span><span class="p">,</span> <span class="n">mu_kuad_X</span><span class="p">(</span><span class="n">jumlah_cluster</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">mu_kuadrat</span><span class="p">(</span><span class="n">N_mu</span><span class="p">,</span> <span class="n">m</span><span class="p">)))</span>
+        <span class="n">U</span> <span class="o">=</span> <span class="n">update_U</span><span class="p">(</span><span class="n">N_mu</span><span class="p">,</span> <span class="n">jumlah_cluster</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">centroid</span><span class="p">)</span>
+        <span class="n">N_mu</span> <span class="o">=</span> <span class="n">normalisasi_mu</span><span class="p">(</span><span class="n">U</span><span class="p">)</span>
+        <span class="n">iterasi</span> <span class="o">+=</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="n">manhatan_dist</span><span class="p">(</span><span class="n">jumlah</span><span class="p">(</span><span class="n">N_mu</span><span class="p">),</span> <span class="n">jumlah</span><span class="p">(</span><span class="n">N</span><span class="p">))</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;berhenti&#39;</span><span class="p">)</span>
+            <span class="n">stop</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">N_mu</span><span class="p">))</span>
+</pre></div>
+
+
+<p>dan terakhir kita dapat memanggil fungsi Fuzzy_CMeans() diatas dengan menentukan jumlah cluster adalah 3, memberikan data yang akan dicluster yang berisi dua fitur yang disimpan pada variable X, memberikan nilai m=2, nilai ambang batas adalah 0.1 dan maksimal iterasi adalah 100 kali. </p>
+<div class="codehilite"><pre><span></span><span class="n">data2</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s2">&quot;Nama&quot;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">data2</span><span class="o">.</span><span class="n">values</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">max_iter</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">jumlah_cluster</span> <span class="o">=</span> <span class="mi">3</span>    
+<span class="n">Fuzzy_CMeans</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">jumlah_cluster</span><span class="p">,</span> <span class="n">m</span><span class="p">,</span> <span class="n">max_iter</span><span class="p">,</span> <span class="n">threshold</span><span class="p">)</span>
+</pre></div>
+
+
+<p>Maka akan mengembalikan hasil seperti berikut:</p>
+<div class="codehilite"><pre><span></span><span class="n">Iterasi</span> <span class="mi">0</span>
+        <span class="mi">0</span>       <span class="mi">1</span>       <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mf">0.3006</span>  <span class="mf">0.4336</span>  <span class="mf">0.2658</span>
+<span class="mi">1</span>  <span class="mf">0.3419</span>  <span class="mf">0.4051</span>  <span class="mf">0.2530</span>
+<span class="mi">2</span>  <span class="mf">0.3500</span>  <span class="mf">0.3839</span>  <span class="mf">0.2661</span>
+<span class="mi">3</span>  <span class="mf">0.3510</span>  <span class="mf">0.3711</span>  <span class="mf">0.2780</span>
+<span class="mi">4</span>  <span class="mf">0.2595</span>  <span class="mf">0.5347</span>  <span class="mf">0.2058</span>
+<span class="mi">5</span>  <span class="mf">0.3633</span>  <span class="mf">0.3782</span>  <span class="mf">0.2585</span>
+<span class="mi">6</span>  <span class="mf">0.3198</span>  <span class="mf">0.5441</span>  <span class="mf">0.1360</span>
+<span class="mi">7</span>  <span class="mf">0.4481</span>  <span class="mf">0.3969</span>  <span class="mf">0.1550</span>
+<span class="n">Iterasi</span> <span class="mi">1</span>
+        <span class="mi">0</span>       <span class="mi">1</span>       <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mf">0.3275</span>  <span class="mf">0.3870</span>  <span class="mf">0.2855</span>
+<span class="mi">1</span>  <span class="mf">0.3390</span>  <span class="mf">0.3752</span>  <span class="mf">0.2858</span>
+<span class="mi">2</span>  <span class="mf">0.3414</span>  <span class="mf">0.3642</span>  <span class="mf">0.2944</span>
+<span class="mi">3</span>  <span class="mf">0.3403</span>  <span class="mf">0.3571</span>  <span class="mf">0.3025</span>
+<span class="mi">4</span>  <span class="mf">0.3185</span>  <span class="mf">0.4347</span>  <span class="mf">0.2468</span>
+<span class="mi">5</span>  <span class="mf">0.3441</span>  <span class="mf">0.3638</span>  <span class="mf">0.2921</span>
+<span class="mi">6</span>  <span class="mf">0.0713</span>  <span class="mf">0.9094</span>  <span class="mf">0.0193</span>
+<span class="mi">7</span>  <span class="mf">0.3667</span>  <span class="mf">0.4039</span>  <span class="mf">0.2294</span>
+<span class="n">Iterasi</span> <span class="mi">2</span>
+        <span class="mi">0</span>       <span class="mi">1</span>       <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mf">0.3297</span>  <span class="mf">0.3686</span>  <span class="mf">0.3017</span>
+<span class="mi">1</span>  <span class="mf">0.3342</span>  <span class="mf">0.3625</span>  <span class="mf">0.3032</span>
+<span class="mi">2</span>  <span class="mf">0.3349</span>  <span class="mf">0.3554</span>  <span class="mf">0.3097</span>
+<span class="mi">3</span>  <span class="mf">0.3362</span>  <span class="mf">0.3498</span>  <span class="mf">0.3140</span>
+<span class="mi">4</span>  <span class="mf">0.3241</span>  <span class="mf">0.3994</span>  <span class="mf">0.2765</span>
+<span class="mi">5</span>  <span class="mf">0.3373</span>  <span class="mf">0.3544</span>  <span class="mf">0.3083</span>
+<span class="mi">6</span>  <span class="mf">0.1465</span>  <span class="mf">0.7976</span>  <span class="mf">0.0559</span>
+<span class="mi">7</span>  <span class="mf">0.3444</span>  <span class="mf">0.3869</span>  <span class="mf">0.2687</span>
+<span class="n">Iterasi</span> <span class="mi">3</span>
+        <span class="mi">0</span>       <span class="mi">1</span>       <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mf">0.3287</span>  <span class="mf">0.3569</span>  <span class="mf">0.3144</span>
+<span class="mi">1</span>  <span class="mf">0.3314</span>  <span class="mf">0.3519</span>  <span class="mf">0.3167</span>
+<span class="mi">2</span>  <span class="mf">0.3313</span>  <span class="mf">0.3475</span>  <span class="mf">0.3211</span>
+<span class="mi">3</span>  <span class="mf">0.3327</span>  <span class="mf">0.3444</span>  <span class="mf">0.3229</span>
+<span class="mi">4</span>  <span class="mf">0.3239</span>  <span class="mf">0.3770</span>  <span class="mf">0.2991</span>
+<span class="mi">5</span>  <span class="mf">0.3330</span>  <span class="mf">0.3475</span>  <span class="mf">0.3194</span>
+<span class="mi">6</span>  <span class="mf">0.2066</span>  <span class="mf">0.6590</span>  <span class="mf">0.1344</span>
+<span class="mi">7</span>  <span class="mf">0.3314</span>  <span class="mf">0.3703</span>  <span class="mf">0.2983</span>
+<span class="n">Iterasi</span> <span class="mi">4</span>
+        <span class="mi">0</span>       <span class="mi">1</span>       <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mf">0.3292</span>  <span class="mf">0.3474</span>  <span class="mf">0.3234</span>
+<span class="mi">1</span>  <span class="mf">0.3310</span>  <span class="mf">0.3443</span>  <span class="mf">0.3247</span>
+<span class="mi">2</span>  <span class="mf">0.3303</span>  <span class="mf">0.3427</span>  <span class="mf">0.3269</span>
+<span class="mi">3</span>  <span class="mf">0.3323</span>  <span class="mf">0.3396</span>  <span class="mf">0.3281</span>
+<span class="mi">4</span>  <span class="mf">0.3255</span>  <span class="mf">0.3592</span>  <span class="mf">0.3153</span>
+<span class="mi">5</span>  <span class="mf">0.3313</span>  <span class="mf">0.3414</span>  <span class="mf">0.3273</span>
+<span class="mi">6</span>  <span class="mf">0.2711</span>  <span class="mf">0.4940</span>  <span class="mf">0.2350</span>
+<span class="mi">7</span>  <span class="mf">0.3268</span>  <span class="mf">0.3575</span>  <span class="mf">0.3157</span>
+<span class="n">Iterasi</span> <span class="mi">5</span>
+        <span class="mi">0</span>       <span class="mi">1</span>       <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mf">0.3303</span>  <span class="mf">0.3423</span>  <span class="mf">0.3274</span>
+<span class="mi">1</span>  <span class="mf">0.3311</span>  <span class="mf">0.3399</span>  <span class="mf">0.3290</span>
+<span class="mi">2</span>  <span class="mf">0.3322</span>  <span class="mf">0.3374</span>  <span class="mf">0.3304</span>
+<span class="mi">3</span>  <span class="mf">0.3324</span>  <span class="mf">0.3367</span>  <span class="mf">0.3310</span>
+<span class="mi">4</span>  <span class="mf">0.3296</span>  <span class="mf">0.3459</span>  <span class="mf">0.3245</span>
+<span class="mi">5</span>  <span class="mf">0.3320</span>  <span class="mf">0.3380</span>  <span class="mf">0.3300</span>
+<span class="mi">6</span>  <span class="mf">0.3138</span>  <span class="mf">0.3936</span>  <span class="mf">0.2925</span>
+<span class="mi">7</span>  <span class="mf">0.3313</span>  <span class="mf">0.3431</span>  <span class="mf">0.3256</span>
+<span class="n">Iterasi</span> <span class="mi">6</span>
+<span class="n">berhenti</span>
+        <span class="mi">0</span>       <span class="mi">1</span>       <span class="mi">2</span>
+<span class="mi">0</span>  <span class="mf">0.3314</span>  <span class="mf">0.3373</span>  <span class="mf">0.3314</span>
+<span class="mi">1</span>  <span class="mf">0.3319</span>  <span class="mf">0.3362</span>  <span class="mf">0.3319</span>
+<span class="mi">2</span>  <span class="mf">0.3351</span>  <span class="mf">0.3333</span>  <span class="mf">0.3316</span>
+<span class="mi">3</span>  <span class="mf">0.3333</span>  <span class="mf">0.3348</span>  <span class="mf">0.3319</span>
+<span class="mi">4</span>  <span class="mf">0.3298</span>  <span class="mf">0.3405</span>  <span class="mf">0.3298</span>
+<span class="mi">5</span>  <span class="mf">0.3320</span>  <span class="mf">0.3320</span>  <span class="mf">0.3360</span>
+<span class="mi">6</span>  <span class="mf">0.3234</span>  <span class="mf">0.3015</span>  <span class="mf">0.3751</span>
+<span class="mi">7</span>  <span class="mf">0.3392</span>  <span class="mf">0.3276</span>  <span class="mf">0.3333</span>
+</pre></div>
+
+
+<p>Claster data tersebut dapat ditentukan dengan nilai derajat ke anggota tertinggi pada masing-masing cluster.</p>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$$','$$'],['$','$']]}
+});
+</script>
+
+<p><script type="text/javascript" async
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../clustering/" title="Implementasi Metode K-Means, K-Modes, dan K-Prototype dengan python" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Implementasi Metode K-Means, K-Modes, dan K-Prototype dengan python
+              </span>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright &copy; 2019 - 2020 Ach. Faisol
+          </div>
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+  <div class="md-footer-social">
+    <link rel="stylesheet" href="../assets/fonts/font-awesome.css">
+    
+      <a href="https://github.com/achfaisol" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/faisol.kzt99" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://linkedin.com/in/faisol.kzt99" class="md-footer-social__link fa fa-linkedin"></a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/application.ac79c3b0.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      
+    
+  </body>
+</html>

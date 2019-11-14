@@ -2,32 +2,37 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://achfaisol.github.io/</loc>
-     <lastmod>2019-11-07</lastmod>
+     <lastmod>2019-11-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/Statistik Deskriptif/</loc>
-     <lastmod>2019-11-07</lastmod>
+     <lastmod>2019-11-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/Distance/</loc>
-     <lastmod>2019-11-07</lastmod>
+     <lastmod>2019-11-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/missing knn/</loc>
-     <lastmod>2019-11-07</lastmod>
+     <lastmod>2019-11-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/klasifikasi/</loc>
-     <lastmod>2019-11-07</lastmod>
+     <lastmod>2019-11-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/clustering/</loc>
-     <lastmod>2019-11-07</lastmod>
+     <lastmod>2019-11-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://achfaisol.github.io/fuzzy/</loc>
+     <lastmod>2019-11-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
