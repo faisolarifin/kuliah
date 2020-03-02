@@ -29,10 +29,10 @@ f(x) = \sum \limits_{i=0}^{n}  {f^i(0)x^i \over i!}
 f(x) = e^x \\ f^1(x) = e^x \\ f^2(x) = e^x \\ . \\ . \\. \\ f^n(x) = e^x
 </script> </div> <div style=text-align:justify;>Ketika $ e^{3x} $ maka polanya adalah</div> <div> <div class=MathJax_Preview> { } f(x) = e^x \\ f^1(x) = 3e^{3x} \\ f^2(x) = 9e^{3x} \\ f^3(x) = 27e^{3x} \\ . \\ . \\ . </div> <script type="math/tex; mode=display"> { }
 f(x) = e^x \\ f^1(x) = 3e^{3x} \\ f^2(x) = 9e^{3x} \\ f^3(x) = 27e^{3x} \\ . \\ . \\ .
-</script> </div> <div style=text-align:justify;>yang artinya turunannya adalah koefisien dipangkat turunan ke i. Kemudian kita dapat menghitung dengan deret MacLaurin</div> <div> <div class=MathJax_Preview> f(x) = f(0) + {f^1(0)x \over 1!} + {f^2(0)x^2 \over 2!} + {f^1(0)x^3 \over 3!} + {f^4(0)x \over 4!} + {f^5(0)x^5 \over 5!} ... \\ f(1) = 1 + 1 + {1 \over 2} + {1 \over 6} + {1 \over 24} + {1 \over 120} ... \\ f(1) = 2.7166666666666663 </div> <script type="math/tex; mode=display">
-f(x) = f(0) + {f^1(0)x \over 1!} + {f^2(0)x^2 \over 2!} + {f^1(0)x^3 \over 3!} + {f^4(0)x \over 4!} + {f^5(0)x^5 \over 5!} ...  \\
-f(1) = 1 + 1 + {1 \over 2} + {1 \over 6} + {1 \over 24} + {1 \over 120} ... \\
-f(1) = 2.7166666666666663
+</script> </div> <div style=text-align:justify;>yang artinya turunannya adalah koefisien dipangkat turunan ke i. Kemudian kita dapat menghitung dengan deret MacLaurin</div> <div> <div class=MathJax_Preview> f(x) \approx f(0) + {f^1(0)x \over 1!} + {f^2(0)x^2 \over 2!} + {f^1(0)x^3 \over 3!} + {f^4(0)x \over 4!} + {f^5(0)x^5 \over 5!} ... \\ f(1) \approx 1 + 1 + {1 \over 2} + {1 \over 6} + {1 \over 24} + {1 \over 120} ... \\ f(1) \approx 2.7166666666666663 </div> <script type="math/tex; mode=display">
+f(x) \approx  f(0) + {f^1(0)x \over 1!} + {f^2(0)x^2 \over 2!} + {f^1(0)x^3 \over 3!} + {f^4(0)x \over 4!} + {f^5(0)x^5 \over 5!} ...  \\
+f(1) \approx  1 + 1 + {1 \over 2} + {1 \over 6} + {1 \over 24} + {1 \over 120} ... \\
+f(1) \approx  2.7166666666666663
 </script> </div> <div style=text-align:justify;>dengan menghitung menggunakan 5 suku pada deret maclaurin, maka menghasilkan selisih yang cukup jauh dengan nilai sebernarnya. nilai (<i>True Value</i>) dari $ e^x $ dengan $ x=1 $ adalah 2.718281828459045 (<i>yang di dapat dari module math.e di python</i>), dan nilai perkiraan yang dihasilkan dari perhitungan diatas, yaitu 2.7166666666666663 dengan x=1. Karena kita mengetahui nilai sebenarnya dari $ e^x $, maka kita dapat telah menghitung True Error dari perkiraan tersebut. </div> <div> <div class=MathJax_Preview> {E_t = True Value - Approximate Vallue} \\ {E_t = 2.7166666666666663 - 2.718281828459045} \\ {E_t = 0.0016151617923787498} </div> <script type="math/tex; mode=display">
 {E_t = True Value - Approximate Vallue} \\
 {E_t =  2.7166666666666663 - 2.718281828459045} \\
