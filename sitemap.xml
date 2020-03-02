@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>https://achfaisol.github.io/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/komnum/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://achfaisol.github.io/Statistik Deskriptif/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/komnum/aproxrimasi error/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://achfaisol.github.io/Distance/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/pendat/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://achfaisol.github.io/missing knn/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/pendat/statistik deskriptif/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://achfaisol.github.io/klasifikasi/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/pendat/distance/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://achfaisol.github.io/clustering/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/pendat/missing knn/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://achfaisol.github.io/fuzzy/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/pendat/klasifikasi/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>https://achfaisol.github.io/regresi linear/</loc>
-     <lastmod>2019-11-21</lastmod>
+     <loc>https://achfaisol.github.io/pendat/clustering/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://achfaisol.github.io/pendat/fuzzy/</loc>
+     <lastmod>2020-03-02</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://achfaisol.github.io/pendat/regresi linear/</loc>
+     <lastmod>2020-03-02</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
