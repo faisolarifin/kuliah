@@ -1,0 +1,502 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=description content="Repository Untuk Tugas"><link rel=canonical href="https://achfaisol.github.io/komnum/sistem persamaan linear/"><meta name=author content="Ach. Faisol S. Arifin"><meta name=lang:clipboard.copy content="Copy to clipboard"><meta name=lang:clipboard.copied content="Copied to clipboard"><meta name=lang:search.language content=en><meta name=lang:search.pipeline.stopwords content=True><meta name=lang:search.pipeline.trimmer content=True><meta name=lang:search.result.none content="No matching documents"><meta name=lang:search.result.one content="1 matching document"><meta name=lang:search.result.other content="# matching documents"><meta name=lang:search.tokenizer content=[\s\-]+><link rel="shortcut icon" href=../../assets/images/favicon.png><meta name=generator content="mkdocs-1.0.4, mkdocs-material-4.4.3"><title>Tugas 3 - Tugas Kuliah</title><link rel=stylesheet href=../../assets/stylesheets/application.30686662.css><link rel=stylesheet href=../../assets/stylesheets/application-palette.a8b3c06d.css><meta name=theme-color content=#3f51b5><script src=../../assets/javascripts/modernizr.74668098.js></script><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel=stylesheet href=../../assets/fonts/material-icons.css><link rel=manifest href=../../manifest.webmanifest><script>
+  window.ga = window.ga || function() {
+    (ga.q = ga.q || []).push(arguments)
+  }
+  ga.l = +new Date
+  /* Setup integration and send page view */
+  ga("create", "None", "auto")
+  ga("set", "anonymizeIp", true)
+  ga("send", "pageview")
+  /* Register handler to log search on blur */
+  document.addEventListener("DOMContentLoaded", () => {
+    if (document.forms.search) {
+      var query = document.forms.search.query
+      query.addEventListener("blur", function() {
+        if (this.value) {
+          var path = document.location.pathname;
+          ga("send", "pageview", path + "?q=" + this.value)
+        }
+      })
+    }
+  })
+</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-primary=indigo data-md-color-accent=indigo> <svg class=md-svg> <defs> <svg xmlns=http://www.w3.org/2000/svg width=416 height=448 viewbox="0 0 416 448" id=__github><path fill=currentColor d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg> </defs> </svg> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay data-md-component=overlay for=__drawer></label> <a href=#penerapan-metode-gauss-gauss-jacobi-gauss-seidel-untuk-sistem-persamaan-linear tabindex=1 class=md-skip> Skip to content </a> <header class=md-header data-md-component=header> <nav class="md-header-nav md-grid"> <div class=md-flex> <div class="md-flex__cell md-flex__cell--shrink"> <a href=https://achfaisol.github.io/ title="Tugas Kuliah" class="md-header-nav__button md-logo"> <i class=md-icon></i> </a> </div> <div class="md-flex__cell md-flex__cell--shrink"> <label class="md-icon md-icon--menu md-header-nav__button" for=__drawer></label> </div> <div class="md-flex__cell md-flex__cell--stretch"> <div class="md-flex__ellipsis md-header-nav__title" data-md-component=title> <span class=md-header-nav__topic> Tugas Kuliah </span> <span class=md-header-nav__topic> Tugas 3 </span> </div> </div> <div class="md-flex__cell md-flex__cell--shrink"> <label class="md-icon md-icon--search md-header-nav__button" for=__search></label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=query data-md-state=active> <label class="md-icon md-search__icon" for=__search></label> <button type=reset class="md-icon md-search__icon" data-md-component=reset tabindex=-1> &#xE5CD; </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=result> <div class=md-search-result__meta> Type to start searching </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> </div> <div class="md-flex__cell md-flex__cell--shrink"> <div class=md-header-nav__source> <a href=https://github.com/achfaisol/ title="Go to repository" class=md-source data-md-source=github> <div class=md-source__icon> <svg viewbox="0 0 24 24" width=24 height=24> <use xlink:href=#__github width=24 height=24></use> </svg> </div> <div class=md-source__repository> Ach. Faisol S. Arifin </div> </a> </div> </div> </div> </nav> </header> <div class=md-container> <nav class="md-tabs md-tabs--active" data-md-component=tabs> <div class="md-tabs__inner md-grid"> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../ class="md-tabs__link md-tabs__link--active"> Komputasi Numerik </a> </li> <li class=md-tabs__item> <a href=../../pendat/ class=md-tabs__link> Penambangan Data </a> </li> </ul> </div> </nav> <main class=md-main role=main> <div class="md-main__inner md-grid" data-md-component=container> <div class="md-sidebar md-sidebar--primary" data-md-component=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" data-md-level=0> <label class="md-nav__title md-nav__title--site" for=__drawer> <a href=https://achfaisol.github.io/ title="Tugas Kuliah" class="md-nav__button md-logo"> <i class=md-icon></i> </a> Tugas Kuliah </label> <div class=md-nav__source> <a href=https://github.com/achfaisol/ title="Go to repository" class=md-source data-md-source=github> <div class=md-source__icon> <svg viewbox="0 0 24 24" width=24 height=24> <use xlink:href=#__github width=24 height=24></use> </svg> </div> <div class=md-source__repository> Ach. Faisol S. Arifin </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-1 type=checkbox id=nav-1 checked> <label class=md-nav__link for=nav-1> Komputasi Numerik </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-1> Komputasi Numerik </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../ title=Beranda class=md-nav__link> Beranda </a> </li> <li class=md-nav__item> <a href="../aproxrimasi error/" title="Tugas 1" class=md-nav__link> Tugas 1 </a> </li> <li class=md-nav__item> <a href="../Persamaan non linear/" title="Tugas 2" class=md-nav__link> Tugas 2 </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-toggle md-nav__toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Tugas 3 </label> <a href=./ title="Tugas 3" class="md-nav__link md-nav__link--active"> Tugas 3 </a> <nav class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc>Table of contents</label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#eliminasi-gauss class=md-nav__link> Eliminasi Gauss </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#contoh-eliminasi-dengan-gauss class=md-nav__link> Contoh Eliminasi dengan Gauss </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#forward-elimination class=md-nav__link> Forward Elimination </a> </li> <li class=md-nav__item> <a href=#backward-subsitution class=md-nav__link> Backward Subsitution </a> </li> <li class=md-nav__item> <a href=#implementasi-eliminasi-gauss-dengan-python class=md-nav__link> Implementasi Eliminasi Gauss dengan Python </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#metode-gauss-jacobi class=md-nav__link> Metode Gauss Jacobi </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#perhitungan-gauss-jacobi class=md-nav__link> Perhitungan Gauss Jacobi </a> </li> <li class=md-nav__item> <a href=#implementasi-gauss-jacobi-dengan-python class=md-nav__link> Implementasi Gauss Jacobi dengan Python </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#metode-gauss-seidel class=md-nav__link> Metode Gauss Seidel </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#perhitungan-gauss-seidel class=md-nav__link> Perhitungan Gauss Seidel </a> </li> <li class=md-nav__item> <a href=#implementasi-gauss-seidel-dengan-python class=md-nav__link> Implementasi Gauss Seidel dengan Python </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-2 type=checkbox id=nav-2> <label class=md-nav__link for=nav-2> Penambangan Data </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-2> Penambangan Data </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../pendat/ title=Beranda class=md-nav__link> Beranda </a> </li> <li class=md-nav__item> <a href="../../pendat/statistik deskriptif/" title="Tugas 1" class=md-nav__link> Tugas 1 </a> </li> <li class=md-nav__item> <a href=../../pendat/distance/ title="Tugas 2" class=md-nav__link> Tugas 2 </a> </li> <li class=md-nav__item> <a href="../../pendat/missing knn/" title="Tugas 3" class=md-nav__link> Tugas 3 </a> </li> <li class=md-nav__item> <a href=../../pendat/klasifikasi/ title="Tugas 4" class=md-nav__link> Tugas 4 </a> </li> <li class=md-nav__item> <a href=../../pendat/clustering/ title="Tugas 5" class=md-nav__link> Tugas 5 </a> </li> <li class=md-nav__item> <a href=../../pendat/fuzzy/ title="Tugas 6" class=md-nav__link> Tugas 6 </a> </li> <li class=md-nav__item> <a href="../../pendat/regresi linear/" title="Tugas 7" class=md-nav__link> Tugas 7 </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc>Table of contents</label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#eliminasi-gauss class=md-nav__link> Eliminasi Gauss </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#contoh-eliminasi-dengan-gauss class=md-nav__link> Contoh Eliminasi dengan Gauss </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#forward-elimination class=md-nav__link> Forward Elimination </a> </li> <li class=md-nav__item> <a href=#backward-subsitution class=md-nav__link> Backward Subsitution </a> </li> <li class=md-nav__item> <a href=#implementasi-eliminasi-gauss-dengan-python class=md-nav__link> Implementasi Eliminasi Gauss dengan Python </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#metode-gauss-jacobi class=md-nav__link> Metode Gauss Jacobi </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#perhitungan-gauss-jacobi class=md-nav__link> Perhitungan Gauss Jacobi </a> </li> <li class=md-nav__item> <a href=#implementasi-gauss-jacobi-dengan-python class=md-nav__link> Implementasi Gauss Jacobi dengan Python </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#metode-gauss-seidel class=md-nav__link> Metode Gauss Seidel </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#perhitungan-gauss-seidel class=md-nav__link> Perhitungan Gauss Seidel </a> </li> <li class=md-nav__item> <a href=#implementasi-gauss-seidel-dengan-python class=md-nav__link> Implementasi Gauss Seidel dengan Python </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content> <article class="md-content__inner md-typeset"> <a href="https://github.com/achfaisol/edit/master/docs/komnum/sistem persamaan linear.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a> <h1 id=penerapan-metode-gauss-gauss-jacobi-gauss-seidel-untuk-sistem-persamaan-linear>Penerapan Metode Gauss, Gauss Jacobi, Gauss Seidel untuk Sistem Persamaan Linear<a class=headerlink href=#penerapan-metode-gauss-gauss-jacobi-gauss-seidel-untuk-sistem-persamaan-linear title="Permanent link">&para;</a></h1> <h3 id=eliminasi-gauss>Eliminasi Gauss<a class=headerlink href=#eliminasi-gauss title="Permanent link">&para;</a></h3> <div style=text-align:justify;>Eliminasi gauss merupakan salah satu metode eliminasi yang ditemukan oleh Carl Friedrich Gauss yang merupakan seorang matematikawan yang berkebangsaan Jerman. Metede gauss dimanfaatkan untuk memecahkan sebuah sistem persamaan linear dengan merepresentasikan persamaan kedalam bentuk matriks. Dalam eliminasi gauss terdiri dari 2 langkah yaitu, Eliminasi Maju (<i>forward elimination</i>), dan Subsitusi Mundur (<i>backword subsitution</i>). Eliminasi maju merupakan langkah untuk menjadikan matriks $ A $ ke dalam bentuk matriks segitigas atas (<i>upper tringular form</i>), menggunakan Operasi baris elementer (OBE). Dan Subsitutusi mundur merupakan langkah untuk penyelesaian variabel akhir.</div> <div style=text-align:justify;>Sebuah sistem persamaan linear memiliki sebuah representasi, yaitu $ Ax = B $. dimana $ A $ merupakan reperesentasi koefisien dalam bentuk matriks, $ x $ sebagai representasi dari variabel dalam bentuk matriks, dan $ B $ sebagai representasi nilai dari persamaan dalam bentuk matriks.</div> <div> <div class=MathJax_Preview> -3x + y = -3 \\ x + y = 5 </div> <script type="math/tex; mode=display">
+-3x + y = -3 \\ x + y = 5
+</script> </div> <div> <div class=MathJax_Preview> Ax = B \\ \begin{bmatrix} -3 &amp; 1 \\ 1 &amp; 1 \end{bmatrix} \begin{bmatrix} x \\ y \end{bmatrix} \begin{bmatrix} -3 \\ 5 \end{bmatrix} </div> <script type="math/tex; mode=display">
+Ax = B \\
+\begin{bmatrix}
+-3 & 1 \\ 
+1 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x \\ 
+y 
+\end{bmatrix}
+\begin{bmatrix}
+-3 \\ 
+5
+\end{bmatrix}
+</script> </div> <h4 id=contoh-eliminasi-dengan-gauss>Contoh Eliminasi dengan Gauss<a class=headerlink href=#contoh-eliminasi-dengan-gauss title="Permanent link">&para;</a></h4> <div style=text-align:justify>Ketika terdapat Sistem Persamaan Linear seperti berikut</div> <div> <div class=MathJax_Preview> 6x_1 - 2x_2 + 2x_3 + 4x_4 = 16 \\ 12x_1 -8x_2 + 6x_3 + 10x_4 = 16 \\ 3x_1 -12x_2 + 9x_3 + 3x_4 = -19 \\ -6x_1 + 6x_2 + x_3 -18x_4 = -34 </div> <script type="math/tex; mode=display">
+6x_1 - 2x_2 + 2x_3 + 4x_4 = 16 \\
+12x_1 -8x_2 + 6x_3 + 10x_4 = 16 \\
+3x_1 -12x_2 + 9x_3 + 3x_4 = -19 \\
+-6x_1 + 6x_2 + x_3 -18x_4 = -34
+</script> </div> <div style=text-align:justify>Kita dapat mengeliminasi dengan metode Gauss dengan membentuk menjadi persamaan $ Ax = B $</div> <div> <div class=MathJax_Preview> \begin{bmatrix} 6 &amp; -2 &amp; 2 &amp; 4 \\ 12 &amp; -8 &amp; 6 &amp; 10 \\ 3 &amp; -13 &amp; 9 &amp; 3 \\ -6 &amp; 4 &amp; 1 &amp; -18 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} \begin{bmatrix} 16 \\ 26 \\ -19 \\ -34 \end{bmatrix} </div> <script type="math/tex; mode=display">
+\begin{bmatrix}
+6 & -2 & 2 & 4 \\ 
+12 & -8 & 6 & 10 \\
+3 & -13 & 9 & 3 \\
+-6 & 4 & 1 & -18
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ 
+x_2 \\
+x_3 \\
+x_4
+\end{bmatrix}
+\begin{bmatrix}
+16 \\ 
+26 \\
+-19 \\
+-34
+\end{bmatrix}
+</script> </div> <p>Selanjutnya kita dapat melakukan Eliminasi Maju (<em>forward elimination</em>) untuk menjadi matriks A menjadi matriks segitiga atas, dengan menjadi nilai dibawah diagonal matriks A menjadi 0. Untuk melakukan eliminasi maju kita dapat menggunakan rumus berikut.</p> <h5 id=forward-elimination>Forward Elimination<a class=headerlink href=#forward-elimination title="Permanent link">&para;</a></h5> <div> <div class=MathJax_Preview> x_k = {\left.\begin{aligned} A_{ij} \leftarrow A_{ij} - \left ( {A_{ik} \over A_{kk}} \right)A_{kj} &amp;; (k \leq j \leq n)\\ b_i \leftarrow b_i - \left ( {A_{ik} \over A_{kk}} \right)b_{k} &amp;; \end{aligned}\right\rbrace {k+1 \leq i \leq n}} </div> <script type="math/tex; mode=display">
+x_k = {\left.\begin{aligned}
+A_{ij} \leftarrow A_{ij} - \left ( {A_{ik} \over A_{kk}} \right)A_{kj} &; (k \leq j \leq n)\\ 
+b_i \leftarrow b_i - \left ( {A_{ik} \over A_{kk}} \right)b_{k} &; 
+\end{aligned}\right\rbrace  {k+1 \leq i \leq n}}
+</script> </div> <div style=text-align:justify>Untuk menjadikan 0 pada matriks A baris 2 kolom ke 1 menggunakan rumus diatas, yaitu seperti berikut.</div> <div> <div class=MathJax_Preview> A_{21} = A_{21} - \left ({A_{21} \over A_{11}}\right ) \times A_{11} \\ A_{21} = 12- \left ({12 \over 6} \right) \times 6 </div> <script type="math/tex; mode=display">
+A_{21} = A_{21} - \left ({A_{21} \over A_{11}}\right ) \times A_{11} \\
+A_{21} = 12- \left ({12 \over 6} \right) \times 6
+</script> </div> <div style=text-align:justify>Eliminasi dilakukan sampai $ x_{n-1} $. Kemudian akan mengasilkan seperti berikut.</div> <div> <div class=MathJax_Preview> \begin{bmatrix} 6 &amp; -2 &amp; 2 &amp; 4 \\ 0 &amp; -4 &amp; 2 &amp; 2 \\ 0 &amp; -12 &amp; 8 &amp; 1\\ 0 &amp; 2&amp; 3&amp; -14 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} \begin{bmatrix} 16 \\ -6 \\ -27\\ -18 \end{bmatrix} </div> <script type="math/tex; mode=display">
+\begin{bmatrix}
+6 & -2 & 2 & 4 \\ 
+0 & -4 & 2 & 2 \\
+0 & -12 & 8 & 1\\
+0 & 2& 3& -14
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ 
+x_2 \\
+x_3 \\
+x_4
+\end{bmatrix}
+\begin{bmatrix}
+16 \\ 
+-6 \\
+-27\\
+-18
+\end{bmatrix}
+</script> </div> <div> <div class=MathJax_Preview> \begin{bmatrix} 6 &amp; -2 &amp; 2 &amp; 4 \\ 0 &amp; -4 &amp; 2 &amp; 2 \\ 0 &amp; 0 &amp; 2 &amp; -5\\ 0 &amp; 0&amp; 4&amp; -13 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} \begin{bmatrix} 16 \\ -6 \\ -9\\ -21 \end{bmatrix} </div> <script type="math/tex; mode=display">
+\begin{bmatrix}
+6 & -2 & 2 & 4 \\ 
+0 & -4 & 2 & 2 \\
+0 & 0 & 2 & -5\\
+0 & 0& 4& -13
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ 
+x_2 \\
+x_3 \\
+x_4
+\end{bmatrix}
+\begin{bmatrix}
+16 \\ 
+-6 \\
+-9\\
+-21
+\end{bmatrix}
+</script> </div> <div> <div class=MathJax_Preview> \begin{bmatrix} 6 &amp; -2 &amp; 2 &amp; 4 \\ 0 &amp; -4 &amp; 2 &amp; 2 \\ 0 &amp; 0 &amp; 2 &amp; -5\\ 0 &amp; 0 &amp; 0 &amp; -3 \end{bmatrix} \begin{bmatrix} x_1 \\ x_2 \\ x_3 \\ x_4 \end{bmatrix} \begin{bmatrix} 16 \\ -6 \\ -9\\ -3 \end{bmatrix} </div> <script type="math/tex; mode=display">
+\begin{bmatrix}
+6 & -2 & 2 & 4 \\ 
+0 & -4 & 2 & 2 \\
+0 & 0 & 2 & -5\\
+0 & 0 & 0 & -3
+\end{bmatrix}
+\begin{bmatrix}
+x_1 \\ 
+x_2 \\
+x_3 \\
+x_4
+\end{bmatrix}
+\begin{bmatrix}
+16 \\ 
+-6 \\
+-9\\
+-3
+\end{bmatrix}
+</script> </div> <p>Setelah menyelesaikan eliminasi sampai $ x_{n-1} $, kita dapat melakukan Subsitusi Mundur (<em>Backward Subsitution</em>) untuk mencari nilai $ x_1 $ sampai $ x_n $ .</p> <h5 id=backward-subsitution>Backward Subsitution<a class=headerlink href=#backward-subsitution title="Permanent link">&para;</a></h5> <div> <div class=MathJax_Preview> x_n = {b_n \over a_{nn}} \\ x_i = {b_i \sum _{j=i+1}^{n} a_{ij}x_j \over a_{ii} } </div> <script type="math/tex; mode=display">
+x_n = {b_n \over a_{nn}} \\
+x_i = {b_i \sum _{j=i+1}^{n} a_{ij}x_j \over a_{ii} }
+</script> </div> <div style=text-align:justify>Menggunakan rumus diatas kita dapat mencari nilai x tersebut.</div> <div> <div class=MathJax_Preview> x_4 = {-3 \over -3} = 1 \\ x_3 = {-9 + 5 \over 2} = -2 \\ x_2 = {-6-2(-2)-2(1) \over -4} = 1 \\ x_1 = {16 + 2(1) - 2(-2) + 4(1) \over 6} = 3 </div> <script type="math/tex; mode=display">
+x_4 
+= {-3 \over -3} = 1 \\
+x_3 = {-9 + 5 \over 2} = -2 \\
+x_2 = {-6-2(-2)-2(1) \over -4} = 1 \\
+x_1 = {16 + 2(1) - 2(-2) + 4(1) \over 6} = 3
+</script> </div> <p>Setelah melakukan subsitusi mundur, maka ditemukan nilai <span><span class=MathJax_Preview>x_1 = 3</span><script type=math/tex>x_1 = 3</script></span>, <span><span class=MathJax_Preview>x_2 = 1</span><script type=math/tex>x_2 = 1</script></span>, <span><span class=MathJax_Preview>x_3 = -2</span><script type=math/tex>x_3 = -2</script></span>, $x_4 = 1 $</p> <h5 id=implementasi-eliminasi-gauss-dengan-python>Implementasi Eliminasi Gauss dengan Python<a class=headerlink href=#implementasi-eliminasi-gauss-dengan-python title="Permanent link">&para;</a></h5> <div class=codehilite><pre><span></span><span class=kn>from</span> <span class=nn>numpy</span> <span class=kn>import</span> <span class=n>linalg</span>
+
+<span class=c1>##A = [[6, -2, 2, 4], [12, -8, 6, 10], [3, -13, 9, 3], [-6, 4, 1, -18]]</span>
+<span class=c1>##B = [16, 26, -19, -34]</span>
+<span class=n>A</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=n>B</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=n>n_spl</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan banyak persamaan : &#39;</span><span class=p>))</span>
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_spl</span><span class=p>):</span>
+    <span class=n>temp</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_var</span><span class=p>):</span>
+        <span class=n>temp</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan koefisien SPL ke-</span><span class=si>%i</span><span class=s1> x</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>((</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>),(</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>)))))</span>
+    <span class=n>A</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>temp</span><span class=p>)</span>
+    <span class=n>B</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan hasil SPL ke-</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>))))</span>
+
+
+<span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+
+<span class=k>def</span> <span class=nf>tampil_matrix</span><span class=p>(</span><span class=n>matrix</span><span class=p>):</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>)):</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=mi>0</span><span class=p>])):</span>
+            <span class=k>print</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>],</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>)</span>
+    <span class=k>print</span><span class=p>()</span>
+
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix A&#39;</span><span class=p>)</span>   
+<span class=n>tampil_matrix</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix B&#39;</span><span class=p>,</span> <span class=n>B</span><span class=p>)</span>
+<span class=k>print</span><span class=p>()</span>
+
+<span class=k>if</span> <span class=n>linalg</span><span class=o>.</span><span class=n>det</span><span class=p>(</span><span class=n>A</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+    <span class=c1>#forward elimination</span>
+    <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>):</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>k</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)):</span>
+            <span class=n>factor</span> <span class=o>=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>k</span><span class=p>]</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>k</span><span class=p>][</span><span class=n>k</span><span class=p>]</span>
+            <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>k</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)):</span>
+                <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span><span class=o>=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>-</span> <span class=n>factor</span> <span class=o>*</span> <span class=n>A</span><span class=p>[</span><span class=n>k</span><span class=p>][</span><span class=n>j</span><span class=p>]</span>
+            <span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>factor</span> <span class=o>*</span> <span class=n>B</span><span class=p>[</span><span class=n>k</span><span class=p>]</span>
+
+    <span class=c1>#backward elimination</span>
+    <span class=n>X</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=n>B</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>][</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>):</span>
+        <span class=n>isum</span> <span class=o>=</span> <span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
+        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)):</span>
+            <span class=n>isum</span> <span class=o>=</span> <span class=n>isum</span> <span class=o>-</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>*</span> <span class=n>X</span><span class=p>[</span><span class=n>j</span><span class=p>]</span>
+        <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>isum</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>i</span><span class=p>]</span>
+<span class=k>else</span><span class=p>:</span>
+    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;tidak ada peneyelesaian untuk persamaan tersebut!&#39;</span><span class=p>)</span>
+
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;hasil eliminasi gauss&#39;</span><span class=p>)</span>
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix A&#39;</span><span class=p>)</span> 
+<span class=n>tampil_matrix</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix B&#39;</span><span class=p>,</span> <span class=n>B</span><span class=p>,</span> <span class=s1>&#39;</span><span class=se>\n</span><span class=s1>&#39;</span><span class=p>)</span>
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;X&#39;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>),</span><span class=s1>&#39;:&#39;</span><span class=p>,</span> <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+</pre></div> <p>Dari program diatas, kita menginisialisasikan matriks A, B, dan X sebagai list, dan membuat inputan yang memita banyaknya persamaan. Dari inputan tersebut kemudian dilakukan looping untuk memberikan inputan yang meminta koefisien dari tiap persamaan dan hasil dari persamaan yang kemudian akan di masukkan pada list masing -masing, sehingga list akan menjadi list 2 dimensi untuk list A.</p> <div class=codehilite><pre><span></span><span class=n>A</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=n>B</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=n>n_spl</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan banyak persamaan : &#39;</span><span class=p>))</span>
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_spl</span><span class=p>):</span>
+    <span class=n>temp</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_var</span><span class=p>):</span>
+        <span class=n>temp</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan koefisien SPL ke-</span><span class=si>%i</span><span class=s1> x</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>((</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>),(</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>)))))</span>
+    <span class=n>A</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>temp</span><span class=p>)</span>
+    <span class=n>B</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan hasil SPL ke-</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>))))</span>
+
+<span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+</pre></div> <p>Kemudian terdapat fungsi tampil_matriks(matriks), yang nantinya digunakan untuk menampilkan list 2 dimensi, agar tampil seperti matrik yang memiliki baris dan kolom</p> <div class=codehilite><pre><span></span><span class=k>def</span> <span class=nf>tampil_matrix</span><span class=p>(</span><span class=n>matrix</span><span class=p>):</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>)):</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=mi>0</span><span class=p>])):</span>
+            <span class=k>print</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>],</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>)</span>
+    <span class=k>print</span><span class=p>()</span>
+</pre></div> <p>Dan pada program tersebut terdapat kondisi untuk mengecek determinan matriks A. Ketika determinan matriks A tidak sama dengan 0 maka program akan melakukan proses forward elimination dan backward subsitution. untuk mencari determinan menggunakan fungsi det() yang merupakan fungsi bawaan modul numpy.</p> <div class=codehilite><pre><span></span><span class=k>if</span> <span class=n>linalg</span><span class=o>.</span><span class=n>det</span><span class=p>(</span><span class=n>A</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+    <span class=c1>#forward elimination</span>
+    <span class=c1>#bacward subsition</span>
+<span class=k>else</span><span class=p>:</span>
+    <span class=k>else</span><span class=p>:</span>
+    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;tidak ada peneyelesaian untuk persamaan tersebut!&#39;</span><span class=p>)</span>
+</pre></div> <p>Selanjutnya pada program tersebut terdapat metode forward elimination, yang melakukan komputasi dari rumus berikut $ A_{ij} \leftarrow A_{ij} - \left ( {A_{ik} \over A_{kk}} \right)A_{kj}, b_i \leftarrow b_i - \left ( {A_{ik} \over A_{kk}} \right)b_{k} $ </p> <div class=codehilite><pre><span></span><span class=c1>#forward elimination</span>
+    <span class=k>for</span> <span class=n>k</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>):</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>k</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)):</span>
+            <span class=n>factor</span> <span class=o>=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>k</span><span class=p>]</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>k</span><span class=p>][</span><span class=n>k</span><span class=p>]</span>
+            <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>k</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)):</span>
+                <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span><span class=o>=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>-</span> <span class=n>factor</span> <span class=o>*</span> <span class=n>A</span><span class=p>[</span><span class=n>k</span><span class=p>][</span><span class=n>j</span><span class=p>]</span>
+            <span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>factor</span> <span class=o>*</span> <span class=n>B</span><span class=p>[</span><span class=n>k</span><span class=p>]</span>
+</pre></div> <div style=text-align:jusity;>Dan bacward subsitution yang merupakan komputasi dari rumus $ x_n = {b_n \over a_{nn}} \\ x_i = {b_i \sum _{j=i+1}^{n} a_{ij}x_j \over a_{ii} } $ </div> <div class=codehilite><pre><span></span><span class=c1>#backward elimination</span>
+    <span class=n>X</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>=</span> <span class=n>B</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>][</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>[</span><span class=mi>0</span><span class=p>])</span><span class=o>-</span><span class=mi>1</span><span class=p>]</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>):</span>
+        <span class=n>isum</span> <span class=o>=</span> <span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span>
+        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>,</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)):</span>
+            <span class=n>isum</span> <span class=o>=</span> <span class=n>isum</span> <span class=o>-</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>*</span> <span class=n>X</span><span class=p>[</span><span class=n>j</span><span class=p>]</span>
+        <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=n>isum</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>i</span><span class=p>]</span>
+</pre></div> <p>Saat program tersebut dijalankan maka menghasilkan output seperti berikut.</p> <div class=codehilite><pre><span></span><span class=n>Matrix</span> <span class=n>A</span>
+<span class=o>|</span> <span class=mi>6</span> <span class=o>-</span><span class=mi>2</span> <span class=mi>2</span> <span class=mi>4</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mi>12</span> <span class=o>-</span><span class=mi>8</span> <span class=mi>6</span> <span class=mi>10</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mi>3</span> <span class=o>-</span><span class=mi>13</span> <span class=mi>9</span> <span class=mi>3</span> <span class=o>|</span>
+<span class=o>|</span> <span class=o>-</span><span class=mi>6</span> <span class=mi>4</span> <span class=mi>1</span> <span class=o>-</span><span class=mi>18</span> <span class=o>|</span>
+
+<span class=n>Matrix</span> <span class=n>B</span> <span class=p>[</span><span class=mi>16</span><span class=p>,</span> <span class=mi>26</span><span class=p>,</span> <span class=o>-</span><span class=mi>19</span><span class=p>,</span> <span class=o>-</span><span class=mi>34</span><span class=p>]</span>
+
+<span class=n>hasil</span> <span class=n>eliminasi</span> <span class=n>gauss</span>
+<span class=n>Matrix</span> <span class=n>A</span>
+<span class=o>|</span> <span class=mi>6</span> <span class=o>-</span><span class=mi>2</span> <span class=mi>2</span> <span class=mi>4</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mf>0.0</span> <span class=o>-</span><span class=mf>4.0</span> <span class=mf>2.0</span> <span class=mf>2.0</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mf>0.0</span> <span class=mf>0.0</span> <span class=mf>2.0</span> <span class=o>-</span><span class=mf>5.0</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mf>0.0</span> <span class=mf>0.0</span> <span class=mf>0.0</span> <span class=o>-</span><span class=mf>3.0</span> <span class=o>|</span>
+
+<span class=n>Matrix</span> <span class=n>B</span> <span class=p>[</span><span class=mi>16</span><span class=p>,</span> <span class=o>-</span><span class=mf>6.0</span><span class=p>,</span> <span class=o>-</span><span class=mf>9.0</span><span class=p>,</span> <span class=o>-</span><span class=mf>3.0</span><span class=p>]</span> 
+
+<span class=n>X1</span> <span class=p>:</span> <span class=mf>3.0</span>
+<span class=n>X2</span> <span class=p>:</span> <span class=mf>1.0</span>
+<span class=n>X3</span> <span class=p>:</span> <span class=o>-</span><span class=mf>2.0</span>
+<span class=n>X4</span> <span class=p>:</span> <span class=mf>1.0</span>
+</pre></div> <h3 id=metode-gauss-jacobi>Metode Gauss Jacobi<a class=headerlink href=#metode-gauss-jacobi title="Permanent link">&para;</a></h3> <div style=text-align:justify;>Gauss Jacobi adalah metode iteratif untuk menyelesaikan sebuah sistem persamaan linear dengan ukuran n x n dengan memperbaharui nilai x yang diperoleh setiap iterasi. nilai x merupakan variabel dari persamaan yang akan dicari nilainya. Iterasi pada metode jacobi secara umum di definisikan sebagai berikut.</div> <div> <div class=MathJax_Preview> \sum _ { i = 1 }^{n} x _i ^{(k+1)} = {b_i - \sum _{j=1}^{i-1} a_{ij}x_{j}^{(k)} \sum _{j=i+1}^{n} a_{ij}x_{j}^{(k)} \over a_{ii}} </div> <script type="math/tex; mode=display">
+\sum _ { i = 1 }^{n} x _i ^{(k+1)} = {b_i - \sum _{j=1}^{i-1} a_{ij}x_{j}^{(k)} \sum _{j=i+1}^{n} a_{ij}x_{j}^{(k)} \over a_{ii}}
+</script> </div> <h4 id=perhitungan-gauss-jacobi>Perhitungan Gauss Jacobi<a class=headerlink href=#perhitungan-gauss-jacobi title="Permanent link">&para;</a></h4> <div style=text-align:justify> Tedapat sistem persamaan linear seperti berikut, kita akan mencari nilai x dengan metode Gauss Jacobi.</div> <div> <div class=MathJax_Preview> 10x_1 - x_2 + 2x_3 = 6 \\ -x_1 + 11x_2 - x_3 + 3x_3 = 25 \\ 2x_1 - x_2 + 10x_3 - x_4 = -11 \\ 3x_2 - x_3 + 8x_4 = 15 </div> <script type="math/tex; mode=display">
+10x_1 - x_2 + 2x_3 = 6 \\
+-x_1 + 11x_2 - x_3 + 3x_3 = 25 \\
+2x_1 - x_2 + 10x_3 - x_4 = -11 \\
+3x_2 - x_3 + 8x_4 = 15
+</script> </div> <div style=text-align:justify>Pertama kita dapat menginisialisasi nilai x, dalam contoh ini semua nilai x di inisialisasi dengan 0.</div> <div> <div class=MathJax_Preview> x_1=0, x_2=0, x_3=0, x_4=0 </div> <script type="math/tex; mode=display">
+x_1=0, x_2=0, x_3=0, x_4=0
+</script> </div> <div style=text-align:justify>Kemudian kita dapat mulai menghitung nilai x menggunakan rumus iteratif metode gauss jacobi diatas yang dimulai dari iterasi pertama, atau k=1</div> <div> <div class=MathJax_Preview> x_1 = {x_2 + 2x_3 + 6 \over 10}, x_1= {0 + 2(0) + 6 \over 10} = 0,6000 \\ x_2 = {-x_1 + x_3 - 3x_4 + 25 \over 11}, x_2 = {0 + 0 -3(0) + 25 \over 11} = 2,2727 \\ x_3 = {-2x_1 + x_2 + x_4 + 11 \over 10}, x_3 = {-2(0) + 0 + 0 +11 \over 10} = -1,1000 \\ x_4 = {-3x_2 + x_3 +15 \over -8}, x_4 = {-3(0) + 0 + 15 \over -8} = 1.8750 </div> <script type="math/tex; mode=display">
+x_1 = {x_2 + 2x_3 + 6 \over 10}, x_1= {0 + 2(0) + 6 \over 10} = 0,6000  \\
+x_2 = {-x_1 + x_3 - 3x_4 + 25 \over 11}, x_2 = {0 + 0 -3(0) + 25 \over 11} = 2,2727 \\
+x_3 = {-2x_1 + x_2 + x_4 + 11 \over 10}, x_3 = {-2(0) + 0 + 0 +11 \over 10} = -1,1000 \\
+x_4 = {-3x_2 + x_3 +15 \over -8}, x_4 = {-3(0) + 0 + 15 \over -8} = 1.8750
+</script> </div> <p>Dengan menghitung menggunakan metode Gauss Jacobi satu iterasi, maka ditmukan nilai <span><span class=MathJax_Preview>x_1=0,6000</span><script type=math/tex>x_1=0,6000</script></span>, <span><span class=MathJax_Preview>x_2=2,2727</span><script type=math/tex>x_2=2,2727</script></span>, <span><span class=MathJax_Preview>x_3=1,1000</span><script type=math/tex>x_3=1,1000</script></span>, <span><span class=MathJax_Preview>x_4=1.9570</span><script type=math/tex>x_4=1.9570</script></span>.</p> <h4 id=implementasi-gauss-jacobi-dengan-python>Implementasi Gauss Jacobi dengan Python<a class=headerlink href=#implementasi-gauss-jacobi-dengan-python title="Permanent link">&para;</a></h4> <div class=codehilite><pre><span></span><span class=kn>import</span> <span class=nn>math</span>
+<span class=kn>import</span> <span class=nn>copy</span>
+<span class=kn>from</span> <span class=nn>numpy</span> <span class=kn>import</span> <span class=n>linalg</span>
+
+<span class=c1>##A = [[10, -1, 2, 0], [-1, 11, -1, 3], [2, -1, 10, -1], [0, 3, -1, 8]]</span>
+<span class=c1>##B = [6, 25, -11, 15]</span>
+
+<span class=n>A</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=n>B</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=n>n_spl</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan banyak persamaan : &#39;</span><span class=p>))</span>
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_spl</span><span class=p>):</span>
+    <span class=n>temp</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_var</span><span class=p>):</span>
+        <span class=n>temp</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan koefisien SPL ke-</span><span class=si>%i</span><span class=s1> x</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>((</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>),(</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>)))))</span>
+    <span class=n>A</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>temp</span><span class=p>)</span>
+    <span class=n>B</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan hasil SPL ke-</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>))))</span>
+
+<span class=n>error</span> <span class=o>=</span> <span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan batas error : &#39;</span><span class=p>))</span>
+<span class=n>max_iterasi</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan maksimal iterasi : &#39;</span><span class=p>))</span>
+
+<span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+<span class=n>X_temp</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>tampil_matrix</span><span class=p>(</span><span class=n>matrix</span><span class=p>):</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>)):</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=mi>0</span><span class=p>])):</span>
+            <span class=k>print</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>],</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>)</span>
+    <span class=k>print</span><span class=p>()</span>
+
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix A&#39;</span><span class=p>)</span>   
+<span class=n>tampil_matrix</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix B&#39;</span><span class=p>,</span> <span class=n>B</span><span class=p>)</span>
+<span class=k>print</span><span class=p>()</span>
+
+<span class=n>e</span> <span class=o>=</span> <span class=mi>1</span>
+<span class=n>iterasi</span> <span class=o>=</span> <span class=mi>0</span>
+<span class=k>while</span> <span class=n>math</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>e</span><span class=p>)</span> <span class=o>&gt;=</span> <span class=n>error</span> <span class=ow>and</span> <span class=n>iterasi</span> <span class=o>&lt;</span> <span class=n>max_iterasi</span><span class=p>:</span>
+    <span class=k>if</span> <span class=n>linalg</span><span class=o>.</span><span class=n>det</span><span class=p>(</span><span class=n>A</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+            <span class=n>i_sum</span> <span class=o>=</span> <span class=mi>0</span>
+            <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+                <span class=k>if</span> <span class=n>j</span><span class=o>!=</span><span class=n>i</span><span class=p>:</span>
+                    <span class=n>i_sum</span> <span class=o>+=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>*</span> <span class=n>X_temp</span><span class=p>[</span><span class=n>j</span><span class=p>]</span>
+            <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=nb>round</span><span class=p>((</span><span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>i_sum</span><span class=p>)</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>i</span><span class=p>],</span> <span class=mi>4</span><span class=p>)</span>  
+
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;k-&#39;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>iterasi</span><span class=o>+</span><span class=mi>1</span><span class=p>),</span> <span class=s1>&#39;X =&#39;</span><span class=p>,</span> <span class=n>X</span><span class=p>)</span>
+
+        <span class=n>e</span> <span class=o>=</span> <span class=mi>0</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+            <span class=n>e</span> <span class=o>+=</span> <span class=p>(</span><span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>X_temp</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>**</span> <span class=mi>2</span>
+
+        <span class=n>X_temp</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+        <span class=n>iterasi</span><span class=o>+=</span><span class=mi>1</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;tidak ada peneyelesaian untuk persamaan tersebut!&#39;</span><span class=p>)</span>
+
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;X&#39;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>),</span><span class=s1>&#39;:&#39;</span><span class=p>,</span> <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+</pre></div> <div style=align:justify;>Pada program tersebut di deklarasikan error (<i>treshold</i>) dan maksimal program untuk melakukan iterasi. Dalam kasus ini akan di selesaikan sistem persamaan berikut untuk menguji program metode gauss jacobi.</div> <div class=codehilite><pre><span></span><span class=n>error</span> <span class=o>=</span> <span class=mf>0.001</span>
+<span class=n>max_iterasi</span> <span class=o>=</span> <span class=mi>100</span>
+
+<span class=n>A</span> <span class=o>=</span> <span class=p>[[</span><span class=mi>10</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>2</span><span class=p>,</span> <span class=mi>0</span><span class=p>],</span> <span class=p>[</span><span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>11</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>3</span><span class=p>],</span> <span class=p>[</span><span class=mi>2</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>10</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>],</span> <span class=p>[</span><span class=mi>0</span><span class=p>,</span> <span class=mi>3</span><span class=p>,</span> <span class=o>-</span><span class=mi>1</span><span class=p>,</span> <span class=mi>8</span><span class=p>]]</span>
+<span class=n>B</span> <span class=o>=</span> <span class=p>[</span><span class=mi>6</span><span class=p>,</span> <span class=mi>25</span><span class=p>,</span> <span class=o>-</span><span class=mi>11</span><span class=p>,</span> <span class=mi>15</span><span class=p>]</span>
+<span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+<span class=n>X_temp</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+</pre></div> <div style=text-align:justify>Letak komputasi utama terdapat pada listing berikut. Program tersebut akan berhenti saat nilai dari $ \sqrt { \sum _{i=1}^{n} (x_i - x_{i-1})^2 } $ kurang dari error yang ditetapkan, atau iterasi telah mencapai batas yang ditentukan</div> <div class=codehilite><pre><span></span><span class=n>e</span> <span class=o>=</span> <span class=mi>1</span>
+<span class=n>iterasi</span> <span class=o>=</span> <span class=mi>0</span>
+<span class=k>while</span> <span class=n>math</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>e</span><span class=p>)</span> <span class=o>&gt;=</span> <span class=n>error</span> <span class=ow>and</span> <span class=n>iterasi</span> <span class=o>&lt;</span> <span class=n>max_iterasi</span><span class=p>:</span>
+    <span class=k>if</span> <span class=n>linalg</span><span class=o>.</span><span class=n>det</span><span class=p>(</span><span class=n>A</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+
+        <span class=c1>##Gauss Jacobi Method</span>
+
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;k-&#39;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>iterasi</span><span class=o>+</span><span class=mi>1</span><span class=p>),</span> <span class=s1>&#39;X =&#39;</span><span class=p>,</span> <span class=n>X</span><span class=p>)</span>
+
+        <span class=n>e</span> <span class=o>=</span> <span class=mi>0</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+            <span class=n>e</span> <span class=o>+=</span> <span class=p>(</span><span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>X_temp</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>**</span> <span class=mi>2</span>
+
+        <span class=n>X_temp</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+        <span class=n>iterasi</span><span class=o>+=</span><span class=mi>1</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;tidak ada peneyelesaian untuk persamaan tersebut!&#39;</span><span class=p>)</span>
+</pre></div> <div style=text-align:justify>Dalam listing berikut melakukan komputasi dari motode Gauss Jacobi, yaitu $ \sum _ { i = 1 }^{n} x _i ^{(k+1)} = {b_i - \sum _{j=1}^{i-1} a_{ij}x_{j}^{(k)} \sum _{j=i+1}^{n} a_{ij}x_{j}^{(k)} \over a_{ii}} $</div> <div class=codehilite><pre><span></span><span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+    <span class=n>i_sum</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+        <span class=k>if</span> <span class=n>j</span><span class=o>!=</span><span class=n>i</span><span class=p>:</span>
+            <span class=n>i_sum</span> <span class=o>+=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>*</span> <span class=n>X_temp</span><span class=p>[</span><span class=n>j</span><span class=p>]</span>
+    <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=nb>round</span><span class=p>((</span><span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>i_sum</span><span class=p>)</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>i</span><span class=p>],</span> <span class=mi>4</span><span class=p>)</span>  
+</pre></div> <p>Setelah program tersebut dijalankan maka menghasilkan output seperti berikut.</p> <div class=codehilite><pre><span></span><span class=n>Matrix</span> <span class=n>A</span>
+<span class=o>|</span> <span class=mi>10</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>2</span> <span class=mi>0</span> <span class=o>|</span>
+<span class=o>|</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>11</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>3</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mi>2</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>10</span> <span class=o>-</span><span class=mi>1</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mi>0</span> <span class=mi>3</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>8</span> <span class=o>|</span>
+
+<span class=n>Matrix</span> <span class=n>B</span> <span class=p>[</span><span class=mi>6</span><span class=p>,</span> <span class=mi>25</span><span class=p>,</span> <span class=o>-</span><span class=mi>11</span><span class=p>,</span> <span class=mi>15</span><span class=p>]</span>
+
+<span class=n>k</span><span class=o>-</span><span class=mi>1</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.6</span><span class=p>,</span> <span class=mf>2.2727</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.1</span><span class=p>,</span> <span class=mf>1.875</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>2</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0473</span><span class=p>,</span> <span class=mf>1.7159</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.8052</span><span class=p>,</span> <span class=mf>0.8852</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>3</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.9326</span><span class=p>,</span> <span class=mf>2.0533</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0494</span><span class=p>,</span> <span class=mf>1.1309</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>4</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0152</span><span class=p>,</span> <span class=mf>1.9537</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.9681</span><span class=p>,</span> <span class=mf>0.9738</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>5</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.989</span><span class=p>,</span> <span class=mf>2.0114</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0103</span><span class=p>,</span> <span class=mf>1.0213</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>6</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0032</span><span class=p>,</span> <span class=mf>1.9923</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.9945</span><span class=p>,</span> <span class=mf>0.9944</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>7</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.9981</span><span class=p>,</span> <span class=mf>2.0023</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.002</span><span class=p>,</span> <span class=mf>1.0036</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>8</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0006</span><span class=p>,</span> <span class=mf>1.9987</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.999</span><span class=p>,</span> <span class=mf>0.9989</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>9</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.9997</span><span class=p>,</span> <span class=mf>2.0004</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0004</span><span class=p>,</span> <span class=mf>1.0006</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>10</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0001</span><span class=p>,</span> <span class=mf>1.9998</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.9998</span><span class=p>,</span> <span class=mf>0.9998</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>11</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.9999</span><span class=p>,</span> <span class=mf>2.0001</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0001</span><span class=p>,</span> <span class=mf>1.0001</span><span class=p>]</span>
+<span class=n>X1</span> <span class=p>:</span> <span class=mf>0.9999</span>
+<span class=n>X2</span> <span class=p>:</span> <span class=mf>2.0001</span>
+<span class=n>X3</span> <span class=p>:</span> <span class=o>-</span><span class=mf>1.0001</span>
+<span class=n>X4</span> <span class=p>:</span> <span class=mf>1.0001</span>
+</pre></div> <h3 id=metode-gauss-seidel>Metode Gauss Seidel<a class=headerlink href=#metode-gauss-seidel title="Permanent link">&para;</a></h3> <div style=text-align:justify>Gauss Seidel adalah salah satu metode iteratif yang menggunakan proses iterasi hingga diperoleh nilai-nilai yang berubah-ubah dan akhirnya relatif konstan. Metode iterasi Gauss-Seidel dikembangkan dari gagasan metode iterasi pada solusi persamaan tak linier. Secara umum iterasi gauss seidel di definisikan sebagai berikut.</div> <div> <div class=MathJax_Preview> \sum _ { i = 1 }^{n} x _i ^{(k+1)} = {b_i - \sum _{j=1}^{i-1} a_{ij}x_{j}^{(k+1)} \sum _{j=i+1}^{n} a_{ij}x_{j}^{(k)} \over a_{ii}} </div> <script type="math/tex; mode=display">
+\sum _ { i = 1 }^{n} x _i ^{(k+1)} = {b_i - \sum _{j=1}^{i-1} a_{ij}x_{j}^{(k+1)} \sum _{j=i+1}^{n} a_{ij}x_{j}^{(k)} \over a_{ii}}
+</script> </div> <h4 id=perhitungan-gauss-seidel>Perhitungan Gauss Seidel<a class=headerlink href=#perhitungan-gauss-seidel title="Permanent link">&para;</a></h4> <div style=text-align:justify>Sebagai contoh, terdapat sistem persamaan linear berikut. Kita dapat mencari nilai x tersebut menggunakan metode Gauss Seidel.</div> <div> <div class=MathJax_Preview> 10x_1 - x_2 + 2x_3 = 6 \\ -x_1 + 11x_2 - x_3 + 3x_3 = 25 \\ 2x_1 - x_2 + 10x_3 - x_4 = -11 \\ 3x_2 - x_3 + 8x_4 = 15 </div> <script type="math/tex; mode=display">
+10x_1 - x_2 + 2x_3 = 6 \\
+-x_1 + 11x_2 - x_3 + 3x_3 = 25 \\
+2x_1 - x_2 + 10x_3 - x_4 = -11 \\
+3x_2 - x_3 + 8x_4 = 15
+</script> </div> <div style=text-align:justify>Pertama kita dapat menginisialisasi nilai x, dalam contoh ini semua nilai x di inisialisasi dengan 0.</div> <div> <div class=MathJax_Preview> x_1=0, x_2=0, x_3=0, x_4=0 </div> <script type="math/tex; mode=display">
+x_1=0, x_2=0, x_3=0, x_4=0
+</script> </div> <div style=text-align:justify>Sama halnya dengan perhitungan metode Gauss Jacobi, hanya saja dalam perhitungan metode Gauss Seidel menggunakan nilai x terbaru setiap mencari nilai x berikutnya.</div> <div> <div class=MathJax_Preview> x_1 = {x_2 + 2x_3 + 6 \over 10}, x_1= {0 + 2(0) + 6 \over 10} = 0,6000 \\ x_2 = {-x_1 + x_3 - 3x_4 + 25 \over 11}, x_2 = {0,6 + 0 -3(0) + 25 \over 11} = 2,3273 \\ x_3 = {-2x_1 + x_2 + x_4 + 11 \over 10}, x_3 = {-2(0,6) + 2,3273 + 0 +11 \over 10} = -0,9873 \\ x_4 = {-3x_2 + x_3 +15 \over -8}, x_4 = {-3(2,3273) + (-0,9873) + 15 \over -8} = 0,8789 </div> <script type="math/tex; mode=display">
+x_1 = {x_2 + 2x_3 + 6 \over 10}, x_1= {0 + 2(0) + 6 \over 10} = 0,6000  \\
+x_2 = {-x_1 + x_3 - 3x_4 + 25 \over 11}, x_2 = {0,6 + 0 -3(0) + 25 \over 11} = 2,3273 \\
+x_3 = {-2x_1 + x_2 + x_4 + 11 \over 10}, x_3 = {-2(0,6) + 2,3273 + 0 +11 \over 10} = -0,9873 \\
+x_4 = {-3x_2 + x_3 +15 \over -8}, x_4 = {-3(2,3273) + (-0,9873) + 15 \over -8} = 0,8789
+</script> </div> <p>Setelah menyelesaikan satu iterasi dari metode Gauss Seidel maka ditemukan nilai <span><span class=MathJax_Preview>x_1=0,6000</span><script type=math/tex>x_1=0,6000</script></span>, <span><span class=MathJax_Preview>x_2=2,3273</span><script type=math/tex>x_2=2,3273</script></span>, <span><span class=MathJax_Preview>x_3=-0,9873</span><script type=math/tex>x_3=-0,9873</script></span>, dan <span><span class=MathJax_Preview>x_4=0,8789</span><script type=math/tex>x_4=0,8789</script></span>.</p> <h4 id=implementasi-gauss-seidel-dengan-python>Implementasi Gauss Seidel dengan Python<a class=headerlink href=#implementasi-gauss-seidel-dengan-python title="Permanent link">&para;</a></h4> <div class=codehilite><pre><span></span><span class=kn>import</span> <span class=nn>math</span>
+<span class=kn>import</span> <span class=nn>copy</span>
+<span class=kn>from</span> <span class=nn>numpy</span> <span class=kn>import</span> <span class=n>linalg</span>
+
+<span class=c1>##A = [[10, -1, 2, 0], [-1, 11, -1, 3], [2, -1, 10, -1], [0, 3, -1, 8]]</span>
+<span class=c1>##B = [6, 25, -11, 15]</span>
+
+<span class=n>A</span> <span class=o>=</span> <span class=p>[]</span>
+<span class=n>B</span> <span class=o>=</span> <span class=p>[]</span>
+
+<span class=n>n_spl</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan banyak persamaan : &#39;</span><span class=p>))</span>
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_spl</span><span class=p>):</span>
+    <span class=n>temp</span> <span class=o>=</span> <span class=p>[]</span>
+    <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=n>n_var</span><span class=p>):</span>
+        <span class=n>temp</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan koefisien SPL ke-</span><span class=si>%i</span><span class=s1> x</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>((</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>),(</span><span class=n>j</span><span class=o>+</span><span class=mi>1</span><span class=p>)))))</span>
+    <span class=n>A</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>temp</span><span class=p>)</span>
+    <span class=n>B</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan hasil SPL ke-</span><span class=si>%i</span><span class=s1> : &#39;</span><span class=o>%</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>))))</span>
+
+<span class=n>error</span> <span class=o>=</span> <span class=nb>float</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan batas error : &#39;</span><span class=p>))</span>
+<span class=n>max_iterasi</span> <span class=o>=</span> <span class=nb>int</span><span class=p>(</span><span class=nb>input</span><span class=p>(</span><span class=s1>&#39;masukkan maksimal iterasi : &#39;</span><span class=p>))</span>           
+
+<span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mi>0</span><span class=p>]</span> <span class=o>*</span> <span class=nb>len</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+<span class=n>X_prev</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+
+
+<span class=k>def</span> <span class=nf>tampil_matrix</span><span class=p>(</span><span class=n>matrix</span><span class=p>):</span>
+    <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>)):</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>,</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=mi>0</span><span class=p>])):</span>
+            <span class=k>print</span><span class=p>(</span><span class=n>matrix</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>],</span> <span class=n>end</span><span class=o>=</span><span class=s1>&#39; &#39;</span><span class=p>)</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;|&#39;</span><span class=p>)</span>
+    <span class=k>print</span><span class=p>()</span>
+
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix A&#39;</span><span class=p>)</span>   
+<span class=n>tampil_matrix</span><span class=p>(</span><span class=n>A</span><span class=p>)</span>
+<span class=k>print</span><span class=p>(</span><span class=s1>&#39;Matrix B&#39;</span><span class=p>,</span> <span class=n>B</span><span class=p>)</span>
+<span class=k>print</span><span class=p>()</span>
+
+<span class=n>e</span> <span class=o>=</span> <span class=mi>1</span>
+<span class=n>iterasi</span> <span class=o>=</span> <span class=mi>0</span>
+<span class=k>while</span> <span class=n>math</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>e</span><span class=p>)</span> <span class=o>&gt;=</span> <span class=n>error</span> <span class=ow>and</span> <span class=n>iterasi</span> <span class=o>&lt;</span> <span class=n>max_iterasi</span><span class=p>:</span>
+    <span class=k>if</span> <span class=n>linalg</span><span class=o>.</span><span class=n>det</span><span class=p>(</span><span class=n>A</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+            <span class=n>i_sum</span> <span class=o>=</span> <span class=mi>0</span>
+            <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+                <span class=k>if</span> <span class=n>j</span><span class=o>!=</span><span class=n>i</span><span class=p>:</span>
+                    <span class=n>i_sum</span> <span class=o>+=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>*</span> <span class=n>X</span><span class=p>[</span><span class=n>j</span><span class=p>]</span>
+            <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=nb>round</span><span class=p>((</span><span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>i_sum</span><span class=p>)</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>i</span><span class=p>],</span> <span class=mi>4</span><span class=p>)</span>  
+
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;k-&#39;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>iterasi</span><span class=o>+</span><span class=mi>1</span><span class=p>),</span> <span class=s1>&#39;X =&#39;</span><span class=p>,</span> <span class=n>X</span><span class=p>)</span>
+
+        <span class=n>e</span> <span class=o>=</span> <span class=mi>0</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+            <span class=n>e</span> <span class=o>+=</span> <span class=p>(</span><span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>X_prev</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>**</span> <span class=mi>2</span>
+
+        <span class=n>X_prev</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+        <span class=n>iterasi</span><span class=o>+=</span><span class=mi>1</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;tidak ada peneyelesaian untuk persamaan tersebut!&#39;</span><span class=p>)</span>
+
+<span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+    <span class=k>print</span><span class=p>(</span><span class=s1>&#39;X&#39;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>i</span><span class=o>+</span><span class=mi>1</span><span class=p>),</span><span class=s1>&#39;:&#39;</span><span class=p>,</span> <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>])</span>
+</pre></div> <p>Berikut merupakan listing utama dari program tersebut. listing tersebut merupakan tempat komputasi dari metode Gauss Seidel. Program tersebut akan berjalan dan berhenti dalam kondisi seperti program Gauss Jacobi, hanya saja perbedaannya terletak pada proses perhitungan.</p> <div class=codehilite><pre><span></span><span class=n>e</span> <span class=o>=</span> <span class=mi>1</span>
+<span class=n>iterasi</span> <span class=o>=</span> <span class=mi>0</span>
+<span class=k>while</span> <span class=n>math</span><span class=o>.</span><span class=n>sqrt</span><span class=p>(</span><span class=n>e</span><span class=p>)</span> <span class=o>&gt;=</span> <span class=n>error</span> <span class=ow>and</span> <span class=n>iterasi</span> <span class=o>&lt;</span> <span class=n>max_iterasi</span><span class=p>:</span>
+    <span class=k>if</span> <span class=n>linalg</span><span class=o>.</span><span class=n>det</span><span class=p>(</span><span class=n>A</span><span class=p>)</span> <span class=o>!=</span> <span class=mi>0</span><span class=p>:</span>
+
+        <span class=c1>### Gauss Seidel Method</span>
+
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;k-&#39;</span><span class=o>+</span><span class=nb>str</span><span class=p>(</span><span class=n>iterasi</span><span class=o>+</span><span class=mi>1</span><span class=p>),</span> <span class=s1>&#39;X =&#39;</span><span class=p>,</span> <span class=n>X</span><span class=p>)</span>
+
+        <span class=n>e</span> <span class=o>=</span> <span class=mi>0</span>
+        <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+            <span class=n>e</span> <span class=o>+=</span> <span class=p>(</span><span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>X_prev</span><span class=p>[</span><span class=n>i</span><span class=p>])</span> <span class=o>**</span> <span class=mi>2</span>
+
+        <span class=n>X_prev</span> <span class=o>=</span> <span class=n>copy</span><span class=o>.</span><span class=n>copy</span><span class=p>(</span><span class=n>X</span><span class=p>)</span>
+        <span class=n>iterasi</span><span class=o>+=</span><span class=mi>1</span>
+    <span class=k>else</span><span class=p>:</span>
+        <span class=k>print</span><span class=p>(</span><span class=s1>&#39;tidak ada peneyelesaian untuk persamaan tersebut!&#39;</span><span class=p>)</span>
+</pre></div> <div style=text-align:justify>Dalam listing berikut melakukan komputasi dari motode Gauss Seidel, yaitu $ \sum _ { i = 1 }^{n} x _i ^{(k+1)} = {b_i - \sum _{j=1}^{i-1} a_{ij}x_{j}^{(k+1)} \sum _{j=i+1}^{n} a_{ij}x_{j}^{(k)} \over a_{ii}} $</div> <div class=codehilite><pre><span></span> <span class=k>for</span> <span class=n>i</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+    <span class=n>i_sum</span> <span class=o>=</span> <span class=mi>0</span>
+    <span class=k>for</span> <span class=n>j</span> <span class=ow>in</span> <span class=nb>range</span><span class=p>(</span><span class=nb>len</span><span class=p>(</span><span class=n>X</span><span class=p>)):</span>
+        <span class=k>if</span> <span class=n>j</span><span class=o>!=</span><span class=n>i</span><span class=p>:</span>
+            <span class=n>i_sum</span> <span class=o>+=</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>j</span><span class=p>]</span> <span class=o>*</span> <span class=n>X</span><span class=p>[</span><span class=n>j</span><span class=p>]</span>
+    <span class=n>X</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>=</span> <span class=nb>round</span><span class=p>((</span><span class=n>B</span><span class=p>[</span><span class=n>i</span><span class=p>]</span> <span class=o>-</span> <span class=n>i_sum</span><span class=p>)</span> <span class=o>/</span> <span class=n>A</span><span class=p>[</span><span class=n>i</span><span class=p>][</span><span class=n>i</span><span class=p>],</span> <span class=mi>4</span><span class=p>)</span>  
+</pre></div> <p>Setelah program tersebut dijalankan maka menghasilkan output seperti berikut.</p> <div class=codehilite><pre><span></span><span class=n>Matrix</span> <span class=n>A</span>
+<span class=o>|</span> <span class=mi>10</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>2</span> <span class=mi>0</span> <span class=o>|</span>
+<span class=o>|</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>11</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>3</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mi>2</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>10</span> <span class=o>-</span><span class=mi>1</span> <span class=o>|</span>
+<span class=o>|</span> <span class=mi>0</span> <span class=mi>3</span> <span class=o>-</span><span class=mi>1</span> <span class=mi>8</span> <span class=o>|</span>
+
+<span class=n>Matrix</span> <span class=n>B</span> <span class=p>[</span><span class=mi>6</span><span class=p>,</span> <span class=mi>25</span><span class=p>,</span> <span class=o>-</span><span class=mi>11</span><span class=p>,</span> <span class=mi>15</span><span class=p>]</span>
+
+<span class=n>k</span><span class=o>-</span><span class=mi>1</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>0.6</span><span class=p>,</span> <span class=mf>2.3273</span><span class=p>,</span> <span class=o>-</span><span class=mf>0.9873</span><span class=p>,</span> <span class=mf>0.8788</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>2</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0302</span><span class=p>,</span> <span class=mf>2.037</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0145</span><span class=p>,</span> <span class=mf>0.9843</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>3</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0066</span><span class=p>,</span> <span class=mf>2.0036</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0025</span><span class=p>,</span> <span class=mf>0.9983</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>4</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0009</span><span class=p>,</span> <span class=mf>2.0003</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0003</span><span class=p>,</span> <span class=mf>0.9998</span><span class=p>]</span>
+<span class=n>k</span><span class=o>-</span><span class=mi>5</span> <span class=n>X</span> <span class=o>=</span> <span class=p>[</span><span class=mf>1.0001</span><span class=p>,</span> <span class=mf>2.0</span><span class=p>,</span> <span class=o>-</span><span class=mf>1.0</span><span class=p>,</span> <span class=mf>1.0</span><span class=p>]</span>
+<span class=n>X1</span> <span class=p>:</span> <span class=mf>1.0001</span>
+<span class=n>X2</span> <span class=p>:</span> <span class=mf>2.0</span>
+<span class=n>X3</span> <span class=p>:</span> <span class=o>-</span><span class=mf>1.0</span>
+<span class=n>X4</span> <span class=p>:</span> <span class=mf>1.0</span>
+</pre></div> <p>Sekian terimakasih :)</p> <script type=text/x-mathjax-config>
+MathJax.Hub.Config({
+  tex2jax: {inlineMath: [['$$','$$'],['$','$']]}
+});
+</script> <p><script type=text/javascript async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
+</script></p> </article> </div> </div> </main> <footer class=md-footer> <div class=md-footer-nav> <nav class="md-footer-nav__inner md-grid"> <a href="../Persamaan non linear/" title="Tugas 2" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel=prev> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i> </div> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Previous </span> Tugas 2 </span> </div> </a> <a href=../../pendat/ title=Beranda class="md-flex md-footer-nav__link md-footer-nav__link--next" rel=next> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Next </span> Beranda </span> </div> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> Copyright &copy; 2019 - 2020 Ach. Faisol </div> powered by <a href=https://www.mkdocs.org>MkDocs</a> and <a href=https://squidfunk.github.io/mkdocs-material/ > Material for MkDocs</a> </div> <div class=md-footer-social> <link rel=stylesheet href=../../assets/fonts/font-awesome.css> <a href=https://github.com/achfaisol class="md-footer-social__link fa fa-github"></a> <a href=https://twitter.com/faisol.kzt99 class="md-footer-social__link fa fa-twitter"></a> <a href=https://linkedin.com/in/faisol.kzt99 class="md-footer-social__link fa fa-linkedin"></a> </div> </div> </div> </footer> </div> <script src=../../assets/javascripts/application.ac79c3b0.js></script> <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script> </body> </html>
