@@ -2,77 +2,82 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>https://achfaisol.github.io/komnum/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/komnum/aproxrimasi error/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/komnum/Persamaan non linear/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/komnum/sistem persamaan linear/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/komnum/integrasi metode romberg/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/komnum/tabel richardson/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/komnum/metode euler/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>https://achfaisol.github.io/komnum/monte carlo/</loc>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/statistik deskriptif/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/distance/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/missing knn/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/klasifikasi/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/clustering/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/fuzzy/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>https://achfaisol.github.io/pendat/regresi linear/</loc>
-     <lastmod>2020-04-23</lastmod>
+     <lastmod>2020-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>
